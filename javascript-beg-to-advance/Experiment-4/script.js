@@ -48,7 +48,7 @@ function calculateResult() {
     // Step 2: Calculate average
     let average = total / num;
     average = parseFloat(average.toFixed(2));
-    
+   /// 
     // Step 3: Find grade using IF-ELSE
     let grade;
     if (average >= 90) {
@@ -82,5 +82,5 @@ function calculateResult() {
             <p><strong>Grade:</strong> ${grade}</p>
             <p class="${status.toLowerCase()}"><strong>Result: ${status}</strong></p>
         </div>
-    `;
++++    `;
 }
