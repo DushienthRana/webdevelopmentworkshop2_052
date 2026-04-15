@@ -1,47 +1,45 @@
-let heading = document.getElementById("mainHeading");
-let paragraph = document.getElementById("paragraph");
-let input = document.getElementById("userInput");
-
-let fontSize = 16;
-
-// Change heading text
-document.getElementById("changeTextBtn").addEventListener("click", function () {
-    if (input.value !== "") {
-        heading.innerHTML = input.value;
-    }
-});
-
-// Change background color
-document.getElementById("bgColorBtn").onclick = function () {
-    document.body.style.backgroundColor =
-        "#" + Math.floor(Math.random() * 16777215).toString(16);
+// Selecting elements
+let heading = document.getElementById("heading");
+let input = document.getElementById("inputText");
+let para = document.getElementById("para");
+// Buttons
+let changeTextBtn = document.getElementById("changeTextBtn");
+let colorBtn = document.getElementById("colorBtn");
+let fontBtn = document.getElementById("fontBtn");
+let toggleBtn = document.getElementById("toggleBtn");
+let resetBtn = document.getElementById("resetBtn");
+// 1. Change Heading Text (onclick)
+changeTextBtn.onclick = function() {
+    heading.innerText = input.value;
 };
-
-// Increase font size
-document.getElementById("fontSizeBtn").addEventListener("click", function () {
-    fontSize += 2;
-    paragraph.style.fontSize = fontSize + "px";
+// 2. Change Background Color (addEventListener)
+colorBtn.addEventListener("click", function() {
+    document.body.style.backgroundColor = "lightblue";
 });
-
-// Show/Hide paragraph
-document.getElementById("toggleBtn").addEventListener("click", function () {
-    if (paragraph.style.display === "none") {
-        paragraph.style.display = "block";
+// 3. Change Font Size (onmouseover)
+fontBtn.onmouseover = function() {
+    heading.style.fontSize = "40px";
+};
+// 4. Show/Hide Paragraph
+let isVisible = true;
+toggleBtn.addEventListener("click", function() {
+    if (isVisible) {
+        para.style.display = "none";
+        isVisible = false;
     } else {
-        paragraph.style.display = "none";
+        para.style.display = "block";
+        isVisible = true;
     }
 });
-
-// Reset page
-document.getElementById("resetBtn").addEventListener("click", function () {
-    heading.innerHTML = "Welcome to JavaScript Lab";
-    paragraph.style.display = "block";
-    paragraph.style.fontSize = "16px";
-    document.body.style.backgroundColor = "#f4f4f4";
+// 5. Input Change Event (onchange)
+input.onchange = function() {
+    console.log("Input changed to: " + input.value);
+};
+// 6. Reset Page
+resetBtn.addEventListener("click", function() {
+    heading.innerText = "Welcome to JavaScript DOM";
+    document.body.style.backgroundColor = "white";
+    heading.style.fontSize = "24px";
+    para.style.display = "block";
     input.value = "";
-    fontSize = 16;
-    // mouse over event
-    heading.onmouseover=function () {
-        heading.style.color="blue";
-    }
 });
