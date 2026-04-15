@@ -40,4 +40,8 @@ document.getElementById("resetBtn").addEventListener("click", function () {
     document.body.style.backgroundColor = "#f4f4f4";
     input.value = "";
     fontSize = 16;
+    // mouse over event
+    heading.onmouseover=function () {
+        heading.style.color="blue";
+    }
 });
